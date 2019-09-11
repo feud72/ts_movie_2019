@@ -1,11 +1,18 @@
 import React from 'react';
-import Potato from './Potato';
+
+interface IProps {
+  fav: string;
+}
+
+const Food: React.FunctionComponent<IProps> = ({fav}) => {
+  return <h1>I like {fav}</h1>;
+};
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Hello</h1>
-      <Potato />
+      <Food fav="kimchi" />
     </div>
   );
 };

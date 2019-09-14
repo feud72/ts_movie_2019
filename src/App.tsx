@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-interface IProps {
+interface IFood {
   fav: string;
   image: string;
 }
 
-const Food: React.FunctionComponent<IProps> = ({fav, image}) => {
+const Food: React.FunctionComponent<IFood> = ({fav, image}) => {
   return (
     <>
       <h1>I like {fav}</h1>
@@ -42,13 +42,21 @@ const foodILike = [
   },
 ];
 
+interface IDish {
+  name: string;
+  image: string;
+}
+
+const renderFood : React.FunctionComponent<IDish> = ({name, image})=> {
+return <Food fav={name} image={image} />
+}
+
+
 const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Hello</h1>
-      {foodILike.map(food => (
-        <Food fav={food.name} image={food.image} />
-      ))}
+      {foodILike.map(stuff => renderFood(stuff))}
     </div>
   );
 };

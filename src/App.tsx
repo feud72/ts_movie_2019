@@ -1,26 +1,30 @@
-import React from 'react';
+import React from "react";
 
 interface IState {
-  count: number
+  count: number;
 }
 
 class App extends React.Component<{}, IState> {
   state = {
-    count : 0
+    count: 0
   };
   add = () => {
-    console.log("add");
+    //    this.setState({ count: this.state.count + 1 });
+    this.setState(current => ({ count: current.count + 1 }));
   };
   minus = () => {
-    console.log("minus");
-  }; 
-  render () {
-    return (<div><h1>The number is: {this.state.count}</h1>
-    <button onClick={this.add}>Add</button>
-    <button onClick={this.minus}>Minus</button></div>
+    //    this.setState({ count: this.state.count - 1 });
+    this.setState(current => ({ count: current.count - 1 }));
+  };
+  render() {
+    return (
+      <div>
+        <h1>The number is: {this.state.count}</h1>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
+      </div>
     );
   }
-
 }
 
 export default App;

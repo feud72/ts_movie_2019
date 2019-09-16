@@ -8,6 +8,7 @@ interface IMovie {
   year: number;
   summary: string;
   medium_cover_image: string;
+  genres: string[];
 }
 
 interface IState {
@@ -53,6 +54,7 @@ class App extends React.Component {
                   title={movie.title}
                   summary={movie.summary}
                   poster={movie.medium_cover_image}
+                  genres={movie.genres}
                 />
               ))}
           </div>

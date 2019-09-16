@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Movie.css";
 
 interface IProps {
   id: number;
@@ -30,7 +31,7 @@ const Movie: React.FunctionComponent<IProps> = ({
             </li>
           ))}
         </ul>
-        <p className="movie__summary">{summary}</p>
+        <p className="movie__summary">{summary.slice(0,180)}...</p>
       </div>
     </div>
   );
